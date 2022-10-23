@@ -45,7 +45,7 @@ $list_product = $this->list_product;
 		        <div class="card h-100">
 		          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
 		          <div class="card-body">
-		            <h4 class="card-title"><?php echo $product->produit_label; // Titre objet ?></h4>
+		            <h4 class="card-title"><?php echo $product->produit_titreobjet; // Titre objet ?></h4>
 		            <p class="card-text"><?php echo $product->produit_nom; ?></p>
 		          </div>
 		          <div class="card-footer">
