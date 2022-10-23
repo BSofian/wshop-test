@@ -169,16 +169,11 @@ class Product
             return false;
         }
 
-        $sql_dispatch = "SELECT p.*, 
-                                IF (produit_lang_titreobjet IS NULL, produit_titreobjet, produit_lang_titreobjet) produit_titreobjet,
-                                IF (produit_lang_nom IS NULL, produit_nom, produit_lang_nom) produit_nom,
-                                IF (produit_lang_description IS NULL, produit_description, produit_lang_description) produit_description
+        $sql_dispatch = "SELECT p.*
             FROM produit p
-            AND pl.fk_lang_id = :lang_id
             WHERE p.produit_id = :produit_id;";
 
         $params = [
-            'lang_id' => $this->lang_id,
             'produit_id' => $array_datas['produit_id']
         ];
 
