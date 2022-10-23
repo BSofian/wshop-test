@@ -1,7 +1,7 @@
 <?php
 namespace FwTest\Classes;
 
-class ProductAction
+class Product
 {
     /**
      * The table name
@@ -17,7 +17,7 @@ class ProductAction
      * @access  protected
      * @var     string
      */
-    protected static $pk_name = 'produit_ids';
+    protected static $pk_name = 'produit_id';
 
     /**
      * The object datas
@@ -85,7 +85,7 @@ class ProductAction
      */
 	public static function getAll($db, $begin = 0, $end = 15)
 	{
-		$sql_get = "SELECT p.* FROM " . self::$table_name . " LIMIT " . $begin. ", " . $end;
+		$sql_get = "SELECT p.* FROM " . self::$table_name . " p LIMIT " . $begin. ", " . $end;
 
 		$result = $db->fetchAll($sql_get);
 
@@ -178,6 +178,7 @@ class ProductAction
             WHERE p.produit_id = :produit_id;";
 
         $params = [
+            'lang_id' => $this->lang_id,
             'produit_id' => $array_datas['produit_id']
         ];
 
